@@ -29,49 +29,45 @@ namespace siir00
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.zad0 = new siir00.Zad0();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.zad1 = new siir00.Zad1();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.zad0);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.zad1);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.ShowToolTips = true;
             this.tabControl1.Size = new System.Drawing.Size(10000, 10000);
             this.tabControl1.TabIndex = 0;
-            this.tabControl1.ShowToolTips = true;
             // 
             // zad0
             // 
             this.zad0.Location = new System.Drawing.Point(4, 22);
-            this.zad0.Name = "zad0";
+            this.zad0.Name = "zad 0";
             this.zad0.Padding = new System.Windows.Forms.Padding(3);
             this.zad0.Size = new System.Drawing.Size(9992, 9974);
             this.zad0.TabIndex = 0;
-            this.zad0.Text = "zad0";
+            this.zad0.Text = "zad 0";
+            this.zad0.ToolTipText = resources.GetString("zad0.ToolTipText");
             this.zad0.UseVisualStyleBackColor = true;
-            this.zad0.Click += new System.EventHandler(this.zad0_Click);
-            this.zad0.ToolTipText = @"Należy napisać w dowolnym języku programowania aplikację potrafiąca:
-
-wczytać plik binarny i zmodyfikować jego zawartość,
-wczytać i zmodyfikować plik JSON,
-pobrać(HTTP GET) plik JSON i posortować znajdujące się w nim wartości.";
             // 
-            // tabPage2
+            // zad1
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(9992, 9974);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "zad1";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.zad1.Location = new System.Drawing.Point(4, 22);
+            this.zad1.Name = "zad 1";
+            this.zad1.Padding = new System.Windows.Forms.Padding(3);
+            this.zad1.Size = new System.Drawing.Size(9992, 9974);
+            this.zad1.TabIndex = 1;
+            this.zad1.Text = "zad 1";
+            this.zad1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -92,7 +88,7 @@ pobrać(HTTP GET) plik JSON i posortować znajdujące się w nim wartości.";
 
         private System.Windows.Forms.TabControl tabControl1;
         private Zad0 zad0;
-        private System.Windows.Forms.TabPage tabPage2;
+        private Zad1 zad1;
     }
 }
 
