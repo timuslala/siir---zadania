@@ -117,4 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="zad0.ToolTipText" xml:space="preserve">
+    <value>Należy napisać w dowolnym języku programowania aplikację potrafiąca:
+
+wczytać plik binarny i zmodyfikować jego zawartość,
+wczytać i zmodyfikować plik JSON,
+pobrać(HTTP GET) plik JSON i posortować znajdujące się w nim wartości.</value>
+  </data>
 </root>

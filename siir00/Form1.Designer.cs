@@ -29,9 +29,10 @@ namespace siir00
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.zad0 = new Zad0();
-            this.zad1 = new Zad1();
+            this.zad0 = new siir00.Zad0();
+            this.zad1 = new siir00.Zad1();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,9 +44,9 @@ namespace siir00
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.ShowToolTips = true;
             this.tabControl1.Size = new System.Drawing.Size(10000, 10000);
             this.tabControl1.TabIndex = 0;
-            this.tabControl1.ShowToolTips = true;
             // 
             // zad0
             // 
@@ -55,17 +56,13 @@ namespace siir00
             this.zad0.Size = new System.Drawing.Size(9992, 9974);
             this.zad0.TabIndex = 0;
             this.zad0.Text = "zad0";
+            this.zad0.ToolTipText = resources.GetString("zad0.ToolTipText");
             this.zad0.UseVisualStyleBackColor = true;
-            this.zad0.ToolTipText = @"Należy napisać w dowolnym języku programowania aplikację potrafiąca:
-
-wczytać plik binarny i zmodyfikować jego zawartość,
-wczytać i zmodyfikować plik JSON,
-pobrać(HTTP GET) plik JSON i posortować znajdujące się w nim wartości.";
             // 
-            // tabPage2
+            // zad1
             // 
             this.zad1.Location = new System.Drawing.Point(4, 22);
-            this.zad1.Name = "tabPage2";
+            this.zad1.Name = "zad1";
             this.zad1.Padding = new System.Windows.Forms.Padding(3);
             this.zad1.Size = new System.Drawing.Size(9992, 9974);
             this.zad1.TabIndex = 1;
