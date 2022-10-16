@@ -108,7 +108,14 @@ namespace siir00
         }
         private void ReadLineButton_Click(object sender, EventArgs e)
         {
-
+            using (var client = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate }))
+            {
+                client.BaseAddress = new Uri("https://localhost:44308/");
+                HttpResponseMessage response = client.GetAsync("get-line?file_path="+readLineFileComboBox.SelectedItem+"&line_nr="+lineToRead.Value).Result;
+                response.EnsureSuccessStatusCode();
+                string result = response.Content.ReadAsStringAsync().Result;
+                responseLabel.Text = result;
+            }
         }
 
     }
