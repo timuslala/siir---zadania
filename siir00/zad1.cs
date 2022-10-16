@@ -88,7 +88,7 @@ namespace siir00
                     {
                         multiPartContent.Add(new ByteArrayContent(File.ReadAllBytes(filename)), "files", filename);
                     }
-                    Uri webService = new Uri("https://localhost:44308/FileUpload");
+                    Uri webService = new Uri("https://localhost:44308/file-upload");
                     HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, webService);
                     requestMessage.Headers.ExpectContinue = false;
                     requestMessage.Content = multiPartContent;

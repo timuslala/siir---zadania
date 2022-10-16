@@ -36,7 +36,7 @@ namespace siir_server.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        [HttpPost("FileUpload")]
+        [HttpPost("file-upload")]
         public async Task<IActionResult> Index(List<IFormFile> files)
         {
             long size = files.Sum(f => f.Length);
@@ -58,6 +58,15 @@ namespace siir_server.Controllers
             // process uploaded files
             // Don't rely on or trust the FileName property without validation.
             return Ok(new { count = files.Count, size, filePaths });
+        }
+        [HttpGet("get-line")]
+        public async Task<IActionResult> Index(string file_path, uint line_nr)
+        {
+            if (!file_path.Contains("C:\\Users\\Przemek\\AppData\\Local\\Temp\\tmp"))
+            {
+                return Unauthorized("Wrong directory");
+            }
+            return Ok(System.IO.File.ReadLines(file_path).Skip((int)(line_nr - 1)).Take(1).First());
         }
     }
 }
