@@ -51,22 +51,22 @@ namespace siir00
             // zad0
             // 
             this.zad0.Location = new System.Drawing.Point(4, 22);
-            this.zad0.Name = "zad0";
+            this.zad0.Name = "zad 0";
             this.zad0.Padding = new System.Windows.Forms.Padding(3);
             this.zad0.Size = new System.Drawing.Size(9992, 9974);
             this.zad0.TabIndex = 0;
-            this.zad0.Text = "zad0";
+            this.zad0.Text = "zad 0";
             this.zad0.ToolTipText = resources.GetString("zad0.ToolTipText");
             this.zad0.UseVisualStyleBackColor = true;
             // 
             // zad1
             // 
             this.zad1.Location = new System.Drawing.Point(4, 22);
-            this.zad1.Name = "zad1";
+            this.zad1.Name = "zad 1";
             this.zad1.Padding = new System.Windows.Forms.Padding(3);
             this.zad1.Size = new System.Drawing.Size(9992, 9974);
             this.zad1.TabIndex = 1;
-            this.zad1.Text = "zad1";
+            this.zad1.Text = "zad 1";
             this.zad1.UseVisualStyleBackColor = true;
             // 
             // Form1
