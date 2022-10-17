@@ -62,6 +62,7 @@ namespace siir_server.Controllers
         [HttpGet("get-line")]
         public async Task<IActionResult> Index(string file_path, uint line_nr)
         {
+            if (line_nr < 1||file_path == null) return Error();
             if (!file_path.Contains("C:\\Users\\Przemek\\AppData\\Local\\Temp\\tmp"))
             {
                 return Unauthorized("Wrong directory");
