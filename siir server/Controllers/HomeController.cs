@@ -64,7 +64,7 @@ namespace siir_server.Controllers
         {
             if (!file_path.Contains("C:\\Users\\Przemek\\AppData\\Local\\Temp\\tmp"))
             {
-                return Unauthorized("Wrong directory");
+                return Unauthorized("spaduwa");
             }
             return Ok(System.IO.File.ReadLines(file_path).Skip((int)(line_nr - 1)).Take(1).First());
         }
