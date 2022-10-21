@@ -6,17 +6,19 @@ using System.Windows.Forms;
 
 namespace siir00
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// Główny punkt wejścia dla aplikacji.
         /// </summary>
+        public static Form1 myForm;
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            myForm = new Form1();
+            Application.Run(myForm);
         }
     }
 }

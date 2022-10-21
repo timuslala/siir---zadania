@@ -211,6 +211,9 @@
     <Compile Include="zad1.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="zad2.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

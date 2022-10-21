@@ -33,6 +33,7 @@ namespace siir00
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.zad0 = new siir00.Zad0();
             this.zad1 = new siir00.Zad1();
+            this.zad2 = new siir00.Zad2();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,6 +41,7 @@ namespace siir00
             // 
             this.tabControl1.Controls.Add(this.zad0);
             this.tabControl1.Controls.Add(this.zad1);
+            this.tabControl1.Controls.Add(this.zad2);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
@@ -69,6 +71,16 @@ namespace siir00
             this.zad1.Text = "zad 1";
             this.zad1.UseVisualStyleBackColor = true;
             // 
+            // zad2
+            // 
+            this.zad2.Location = new System.Drawing.Point(4, 22);
+            this.zad2.Name = "zad 2";
+            this.zad2.Padding = new System.Windows.Forms.Padding(3);
+            this.zad2.Size = new System.Drawing.Size(9992, 9974);
+            this.zad2.TabIndex = 2;
+            this.zad2.Text = "zad 2";
+            this.zad2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -89,6 +101,7 @@ namespace siir00
         private System.Windows.Forms.TabControl tabControl1;
         private Zad0 zad0;
         private Zad1 zad1;
+        public Zad2 zad2;
     }
 }
 
