@@ -6,12 +6,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
-
+using MQTTnet;
+using MQTTnet.Client;
 namespace siir00
 {
+    
     public class Zad2 : TabPage
     {
+        MqttFactory mqttFactory;
+        IMqttClient mqttClient;
+        Task<MqttClientConnectResult> mqttConnectionResult;
+        MqttClientOptions mqttClientOptions;
         CancellationTokenSource tokenSource;
+        float cpuValue;
+        float cpuDelta = 10;
+        float cpuLastVal;
         void RT(Action action, int seconds, CancellationToken token)
         {
             if (action == null)
@@ -44,8 +53,20 @@ namespace siir00
             this.ResumeLayout(false);
             
             this.Controls.Add(cpuLabel);
-            onLoad();
             
+            mqttFactory = new MqttFactory();
+            mqttClient = mqttFactory.CreateMqttClient();
+            mqttClientOptions = new MqttClientOptionsBuilder()
+                .WithTls()
+                .WithTcpServer("2c16d12ae2374a8bbf8c0bd3abc8670f.s1.eu.hivemq.cloud",8883)
+                .WithCredentials("timuslala2", "_#96LmfRfPjGxyZ")
+                .Build();
+            // i dont see this leaked password as security threat. go ahead. have it. remember to subscribe to my cpu values
+            Task taskA = new Task(() =>this.mqttConnectionResult = mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None));
+            taskA.RunSynchronously();
+            taskA.Wait();
+            
+            onLoad();
         }
 
         public void onLoad()
@@ -53,16 +74,38 @@ namespace siir00
             RT(() => this.sendCpuUsage(), 1, this.tokenSource.Token);
         }
         
-        public void sendCpuUsage()
+        async public void sendCpuUsage()
         {
-
+            if (!this.cpuLabel.Visible)return ;
             changeText();
-            
+            if (cpuValue <= cpuLastVal - cpuDelta || cpuValue >= cpuLastVal + cpuDelta)
+            {
+                cpuLastVal = cpuValue;
+                
+
+
+                if (mqttClient.IsConnected)
+                {
+                    var applicationMessage = new MqttApplicationMessageBuilder()
+                    .WithTopic("samples/pcPrzemek/cpuusage")
+                    .WithPayload(cpuValue.ToString("0.00"))
+                    .WithPayload(DateTime.Now.ToString())
+                    .Build();
+
+                    var response = await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
+                    string test = response.ToString();
+                }
+                else
+                {
+                    Task taskA = new Task(async () => await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None));
+                }
+            }
         }
 
         public void changeText()
         {
-            string cpuPercent = cpuCounter.NextValue() + "%";
+            cpuValue = cpuCounter.NextValue();
+            string cpuPercent = cpuValue.ToString("0.00") + "%";
             this.cpuLabel.Invoke(new Action(() =>
             {
                 cpuLabel.Text = cpuPercent;
